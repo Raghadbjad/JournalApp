@@ -8,8 +8,6 @@ import SwiftUI
 
 struct EmptyState : View {
     
-    
-    
     var body: some View {
         
         ZStack{
@@ -23,7 +21,7 @@ struct EmptyState : View {
                 HStack{
                 
                     Button(action : {
-                        print("add")
+                        AddJournal()
                     } ){
                         
                         Image(systemName:"plus.circle.fill")
@@ -33,8 +31,7 @@ struct EmptyState : View {
                         
                     .padding(.leading , 200)
                     Button(action: {
-                        print("fillter")
-                        
+                        FillterJournal()
                     }) {
                         
                         Image(systemName: "line.horizontal.3.decrease.circle.fill")
@@ -79,6 +76,18 @@ struct EmptyState : View {
         }
         
      
+        
+    }
+    
+    
+    func FillterJournal(){
+        
+        
+        
+    }
+    
+    func AddJournal(){
+        
         
     }
     
