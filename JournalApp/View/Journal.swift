@@ -5,7 +5,22 @@
 //  Created by Raghad on 20/04/1446 AH.
 //
 
+
 import SwiftUI
+
+extension Color {
+    init(hex: String) {
+        let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
+        var int: UInt64 = 0
+        Scanner(string: hex).scanHexInt64(&int)
+        let r, g, b: Double
+        r = Double((int >> 16) & 0xFF) / 255.0
+        g = Double((int >> 8) & 0xFF) / 255.0
+        b = Double(int & 0xFF) / 255.0
+        self.init(red: r, green: g, blue: b)
+    }
+}
+
 
 struct ContentView: View {
     
@@ -60,7 +75,10 @@ struct ContentView: View {
                                             .resizable()
                                             .scaledToFit()
                                             .frame(width: 30, height: 30) // تغيير المقاسات هنا
-                                            .foregroundStyle(.color1, .gray.opacity(0.4))
+                                            .foregroundStyle(
+                                                           Color(hex: "#D4CBFF"),       // لون الهيكل الخارجي
+                                                           Color.gray.opacity(0.4)     // لون التعبئة الداخلي
+                                                       )
                                     }
                                 }
                                 .padding(.leading, 200)
@@ -80,6 +98,10 @@ struct ContentView: View {
                                             .resizable()
                                             .scaledToFit()
                                             .frame(width: 30, height: 30) // تغيير المقاسات هنا
+                                            .foregroundStyle(
+                                                           Color(hex: "#D4CBFF"),       // لون الهيكل الخارجي
+                                                           Color.gray.opacity(0.4)     // لون التعبئة الداخلي
+                                                       )
                                     }
                                 }
                                 .padding(.leading, 1)
@@ -98,7 +120,7 @@ struct ContentView: View {
                                                 .bold()
                                                 .lineLimit(1)
                                                 .truncationMode(.tail)
-                                                .foregroundColor(.color1)
+                                                .foregroundColor(Color(hex: "#D4CBFF"))
                                             Spacer()
                                             
                                             Button(action: {
@@ -108,7 +130,10 @@ struct ContentView: View {
                                                     .resizable()
                                                     .scaledToFit()
                                                     .frame(width: 30, height: 30) // تغيير المقاسات هنا
-                                                    .foregroundColor(journal.isBookmarked ? .color1 : .gray)
+                                                    .foregroundStyle(
+                                                               Color(hex: "#D4CBFF"),       // External color
+                                                               Color.gray.opacity(0.4)     // Internal fill color
+                                                           )
                                             }
                                         }
                                         
@@ -121,10 +146,10 @@ struct ContentView: View {
                                     }
                                     .padding()
                                     .frame(width: 350, height: 227)
-                                    .background(Color.c1)
+                                    .background(Color.gray.opacity(0.2))
                                     .cornerRadius(14)
                                     .listRowBackground(Color.black)
-                                    .swipeActions(edge: .trailing) {
+                                    .swipeActions(edge: .leading) {
                                         Button(action: {
                                             JournalViewModel1.editJournal(journal: journal)
                                             JournalViewModel1.isShowingAddJournal = true // Show edit screen
@@ -135,18 +160,18 @@ struct ContentView: View {
                                                 Image(systemName: "pencil")
                                                     .resizable()
                                                     .scaledToFit()
-                                                    .frame(width: 30, height: 30) // تغيير المقاسات هنا
+                                                    .frame(width: 30, height: 30)
                                             }
                                         }
                                         .tint(Color("Color4"))
                                     }
                                     
-                                    .swipeActions(edge: .leading) {
+                                    .swipeActions(edge: .trailing) {
                                         Button(role: .destructive, action: {
                                             JournalViewModel1.deleteJournal(journal: journal)
                                         }) {
                                             Label {
-                                                Text("") // استخدام نص فارغ
+                                                Text("")
                                             } icon: {
                                                 Image(systemName: "trash")
                                                     .resizable()
@@ -171,6 +196,23 @@ struct ContentView: View {
                         VStack(spacing: 15) {
                             HStack {
                                 Button(action: {
+                                                               // Add filter action here if needed
+                                                           }) {
+                                                               Label {
+                                                                   Text("") // استخدام نص فارغ
+                                                               } icon: {
+                                                                   Image(systemName: "line.horizontal.3.decrease.circle.fill")
+                                                                       .resizable()
+                                                                       .scaledToFit()
+                                                                       .frame(width: 30, height: 30) // تغيير المقاسات هنا
+                                                                       .foregroundStyle(
+                                                                                      Color(hex: "#D4CBFF"),       // لون الهيكل الخارجي
+                                                                                      Color.gray.opacity(0.4)     // لون التعبئة الداخلي
+                                                                                  )
+                                                               }
+                                                           }
+                                .padding(.leading, 200)
+                                Button(action: {
                                     JournalViewModel1.isShowingAddJournal.toggle()
                                 }) {
                                     Label {
@@ -180,22 +222,10 @@ struct ContentView: View {
                                             .resizable()
                                             .scaledToFit()
                                             .frame(width: 30, height: 30) // تغيير المقاسات هنا
-                                            .foregroundStyle(.color1, .gray.opacity(0.4))
-                                    }
-                                }
-                                .padding(.leading, 200)
-                                
-                                Button(action: {
-                                    // Add filter action here if needed
-                                }) {
-                                    Label {
-                                        Text("") // استخدام نص فارغ
-                                    } icon: {
-                                        Image(systemName: "line.horizontal.3.decrease.circle.fill")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 30, height: 30) // تغيير المقاسات هنا
-                                            .foregroundStyle(.color1,.gray .opacity(0.4))
+                                            .foregroundStyle(
+                                                           Color(hex: "#D4CBFF"),       // لون الهيكل الخارجي
+                                                           Color.gray.opacity(0.4)     // لون التعبئة الداخلي
+                                                       )
                                     }
                                 }
                                 .padding(.leading, 1)
@@ -214,7 +244,7 @@ struct ContentView: View {
                                 .frame(width: 77.7, height: 101) // تغيير المقاسات هنا
                             
                             Text("Begin Your Journal")
-                                .foregroundColor(.color1)
+                                .foregroundColor(.accent)
                                 .font(.system(size: 24, weight: .heavy))
                             
                             Text("Craft your personal diary, tap the \n             plus icon to begin")
@@ -228,7 +258,7 @@ struct ContentView: View {
         }
         .sheet(isPresented: $JournalViewModel1.isShowingAddJournal) {
             ZStack {
-                Color.c1
+                Color.black
                     .ignoresSafeArea()
                 
                 VStack {
@@ -285,3 +315,5 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+
+
