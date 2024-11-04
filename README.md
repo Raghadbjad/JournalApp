@@ -52,6 +52,9 @@ Scroll through past entries to reflect on previous notes.
 ## Contribution
 If you’d like to contribute to JournalApp, please fork the repository and submit a pull request. Feedback, suggestions, or issues can be reported on our GitHub page.
 
+## Screenshots 
+![س](https://github.com/user-attachments/assets/1feb1a59-bbeb-4ea5-b3a4-af5b3977ca50)
+
 
 ## Contact Information
 
