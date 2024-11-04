@@ -49,21 +49,6 @@ Browse entries matching your criteria.
 Access the "Date View" to see entries chronologically.
 Scroll through past entries to reflect on previous notes.
 
-
-# Screenshots 
-
-- **Splash Screen** 
-![Splash Screen](https://github.com/user-attachments/assets/c63e63e8-44a6-4027-8b1a-18a912431a4e)
-
-
-- **Empty State**
-![Empty State](https://github.com/user-attachments/assets/b622a405-850e-4ce9-99ea-e44e40730d89)
-
-
-- **Main Page** 
-![Main Page 2](https://github.com/user-attachments/assets/841d64db-90ec-41b2-9e03-47ff241b827a)
-
-
 ## Contribution
 If you’d like to contribute to JournalApp, please fork the repository and submit a pull request. Feedback, suggestions, or issues can be reported on our GitHub page.
 
