@@ -24,7 +24,7 @@ Use filters to find entries by date or keyword.
 Sort entries chronologically for a timeline view.
 Easily navigate past reflections and track changes over time.
 
-# Usage
+## Usage
 
 - **Adding an Entry:**
 Navigate to the "Add Entry" section.
