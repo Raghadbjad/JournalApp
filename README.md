@@ -51,3 +51,11 @@ Scroll through past entries to reflect on previous notes.
 
 ## Contribution
 If you’d like to contribute to JournalApp, please fork the repository and submit a pull request. Feedback, suggestions, or issues can be reported on our GitHub page.
+
+
+## Contact Information
+
+For inquiries, feedback, or support, please reach out to us at:
+
+Email:(raghad.bjaad@gmail.com)
+
